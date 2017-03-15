@@ -12,11 +12,14 @@ Bike.prototype.search = function(manufacturer, location, distance) {
      }
   });
   var city = "Portland, OR";
-  var encoded = str.replace(/ /g, "+");
-  alert(encoded);
-   $.get("https://maps.googleapis.com/maps/api/geocode/json?address=Portland+OR&key=AIzaSyCxVtVkvIYvgnBsEUQ9eKpOHKPQuJOjrBM").then(function(felix) {
-     console.log(felix.results[0].geometry.location.lat);
-     console.log(felix.results[0].geometry.location.lng);
+
+  var encoded2 =  city.replace(/,/g, "");
+  var encoded =  encoded2.replace(/ /g, "+");
+  console.log(city);
+  console.log(encoded);
+   $.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + encoded +"&key=AIzaSyCxVtVkvIYvgnBsEUQ9eKpOHKPQuJOjrBM").then(function(response) {
+     console.log(response.results[0].geometry.location.lat);
+     console.log(response.results[0].geometry.location.lng);
    });
 };
   exports.bikeModule = Bike;
