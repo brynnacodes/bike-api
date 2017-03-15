@@ -12,6 +12,8 @@ Bike.prototype.search = function(manufacturer, location, distance) {
      }
   });
   var city = "Portland, OR";
+  var encoded = str.replace(/ /g, "+");
+  alert(encoded);
    $.get("https://maps.googleapis.com/maps/api/geocode/json?address=Portland+OR&key=AIzaSyCxVtVkvIYvgnBsEUQ9eKpOHKPQuJOjrBM").then(function(felix) {
      console.log(felix.results[0].geometry.location.lat);
      console.log(felix.results[0].geometry.location.lng);
