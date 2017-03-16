@@ -7,8 +7,9 @@ $(document).ready(function() {
     var location = $('#location').val();
     var distance = $('#distance').val();
     var newBike = new Bike();
-    newBike.search(manufacturer, location, distance);
-
+    var result = newBike.search(manufacturer, location, distance);
+    initMap();
+    console.log(result);
 
   });
 });
